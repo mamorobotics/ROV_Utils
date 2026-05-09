@@ -37,8 +37,21 @@ There a few key details about the autostart process.
 4. Start the service using the process for autostart above. 
 
 
-### Reading System / UStreamer logs
 
+### System / Ustreamer logs
+
+#### Setup
+1. Most of it is automatically configured through either default Pi / linux settings, or through the autostart in the front / lower camera service files. 
+2. Check that persistent logging is setup, run: `ls /var/log/journal`
+    i. If the folder is empty, it means that persistent logging is not setup. 
+3. If needed, setup persistent logging: 
+```
+sudo mkdir -p /var/log/journal
+sudo systemd-tmpfiles --create --prefix /var/log/journal
+sudo systemctl restart systemd-journald
+```
+
+#### Usage
 There are two types of logs: system / ustreamer logs, accessed through journalctl, and the custom logs we setup using the Python code in this repo. The former logs, can be accessed through journalctl, the latter can be access through the files (should be in /home/mamorobotics/rov_logs or something like that). The path can be found in the source code. 
 
 A helpful guide on how to parse through and understand these logs is found in LOGS_GUIDE.md
@@ -48,4 +61,3 @@ A helpful guide on how to parse through and understand these logs is found in LO
 ### Autostart
 
 ### Loggging:
-- [ ] check persistent logging
