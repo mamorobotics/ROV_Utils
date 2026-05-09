@@ -1,0 +1,20 @@
+[Unit]
+Description=uStreamer Front Camera
+After=network.target
+
+[Service]
+ExecStart=/home/mamorobotics/Desktop/ustreamer/ustreamer \
+  --device=/dev/video0 \
+  --host=0.0.0.0 \
+  --port=8080 \
+  --resolution=1280x720 \
+  --format=MJPEG
+
+Restart=on-failure
+RestartSec=10
+
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

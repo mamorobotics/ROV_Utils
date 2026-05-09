@@ -1,0 +1,10 @@
+[Unit]
+Description=ROV System Logger
+
+[Service]
+ExecStart=/usr/bin/python3 /home/mamorobotics/ROV_Utils/monitor.py
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
