@@ -16,6 +16,8 @@ There a few key details about the autostart process.
 ### Setup
 
 1. Move the respective camera service file into: /etc/systemd/system/
+    i. You can either use copy / paste with GUI, or you can use the cp command:
+    ii. Ex. `cp /home/mamorobotics/front_camera.service /etc/systemd/system/`
 2. Run: `sudo systemctl daemon-reload`
 3. Run: "sudo systemctl enable [name of service]"
     i. Ex. `sudo systemctl enable front_camera` or `sudo systemctl enable lower_camera`
